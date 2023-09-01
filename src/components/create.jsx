@@ -28,8 +28,8 @@ function Create () {
   
   const filenames=[...filename]
 //   console.log(filenames.pop())
-  const uploaddata = async() => {
-
+  const uploaddata = async(event) => {
+    event.preventDefault()
     const data = {  ...Contexts.us,desc:text,img:filename[filename.length*1-1],category:category}
     console.log(data)
    setpostdata([...postdata,data])
