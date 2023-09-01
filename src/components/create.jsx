@@ -17,7 +17,7 @@ function Create () {
     setuploadchange(true)
     const formData = new FormData()
     formData.append('file', file)
-    await axios.post('http://localhost:3001/upload',formData ,{text:text})  //   https://bigserver.onrender.com/upload
+    await axios.post('https://bigserver.onrender.com/upload',formData ,{text:text})  //   https://bigserver.onrender.com/upload
     .then(( res)=>{ console.log(res.data)
      
       console.log(0)
@@ -33,7 +33,7 @@ function Create () {
     const data = {  ...Contexts.us,desc:text,img:filename[filename.length*1-1],category:category}
     console.log(data)
    setpostdata([...postdata,data])
-   await  axios.post('http://localhost:3001/',data)
+   await  axios.post('https://bigserver.onrender.com/',data)
     .then(( res)=>{ console.log(res.data)
    })
     .catch(er => console.log(er))
