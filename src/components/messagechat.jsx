@@ -1,5 +1,5 @@
 import React,{useContext, useEffect} from 'react'
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { io } from "socket.io-client";
 import { CountContext } from "../context";
 function Messagechat  ()  {
@@ -15,9 +15,9 @@ function Messagechat  ()  {
     const [socket, setSocket] = useState(null);
     const [notifications, setNotifications] = useState([]);
   
-    // useEffect(() => {
-    //   setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com/
-    // }, []);
+    useEffect(() => {
+      setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com/
+    }, []);
   
   
     useEffect(() => {
@@ -46,7 +46,7 @@ function Messagechat  ()  {
     }, [socket]);
   return (
     <div className='mc-contain' >hh
-      {/* vvv
+      vvv
        <div className="container">
     
     <div className="login">
@@ -73,7 +73,7 @@ function Messagechat  ()  {
       <div>   {notifications?.map((n) => <div>{n.text}</div>)}</div>
     </div>
  
- </div> */}
+ </div>
 
     </div>
   )
