@@ -34,27 +34,42 @@ function Create() {
     event.preventDefault();
     await axios
       .post("http://localhost:3001/postmessage")
-      .then((res) => {
+      .then(async (res) => {
         console.log(res.data.post._id);
         setmessagetext(res.data.post._id);
+        const data = {
+          ...Contexts.us,
+          desc: text,
+          img: filename[filename.length * 1 - 1],
+          category: category,
+          conversation: res.data.post._id,
+        };
+        console.log(data);
+        setpostdata([...postdata, data]);
+        await axios
+          .post("https://bigserver.onrender.com/", data)
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((er) => console.log(er));
       })
       .catch((er) => console.log(er));
     console.log(messagetext);
-    const data = {
-      ...Contexts.us,
-      desc: text,
-      img: filename[filename.length * 1 - 1],
-      category: category,
-      conversation: messagetext,
-    };
-    console.log(data);
-    setpostdata([...postdata, data]);
-    await axios
-      .post("https://bigserver.onrender.com/", data)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((er) => console.log(er));
+    // const data = {
+    //   ...Contexts.us,
+    //   desc: text,
+    //   img: filename[filename.length * 1 - 1],
+    //   category: category,
+    //   conversation: messagetext,
+    // };
+    // console.log(data);
+    // setpostdata([...postdata, data]);
+    // await axios
+    //   .post("https://bigserver.onrender.com/", data)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((er) => console.log(er));
   };
   console.log(postdata);
   //
