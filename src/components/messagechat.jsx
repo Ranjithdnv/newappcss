@@ -19,7 +19,9 @@ function Messagechat() {
     setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     const chattyou = async () => {
       await axios
-        .get("http://localhost:3001/postmessagesearch/64f4908a1bdcf4a5e6303639")
+        .get(
+          "https://bigserver.onrender.com/postmessagesearch/64f4908a1bdcf4a5e6303639"
+        )
         .then((res) => {
           console.log(res.data.post._id);
           setmessage(res.data.post._id);
