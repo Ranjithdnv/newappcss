@@ -16,7 +16,7 @@ function Messagechat() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    // setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
+    setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     // chattyou();
   }, []);
   //
@@ -28,7 +28,7 @@ function Messagechat() {
     console.log(Contexts.us);
     await axios
       .put(
-        "http://localhost:3001/postmessagesearch/" +
+        "https://bigserver.onrender.com/postmessagesearch/" +
           Contexts.us.messageid_ +
           "/like",
         {

@@ -56,7 +56,7 @@ function Login() {
         {" "}
         <input
           type="text"
-          value={text2}
+          value={text3}
           onChange={(e) => {
             settext3(e.target.value);
           }}
