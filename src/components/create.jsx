@@ -33,16 +33,18 @@ function Create() {
   const uploaddata = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:3001/postmessage")
+      .post("http://localhost:3001/postmessage", { userid: Contexts.us.userid })
       .then(async (res) => {
         console.log(res.data.post._id);
-        setmessagetext(res.data.post._id);
+        // Contexts.user({ ...Contexts.us, message: res.data.post._id });
+        // setmessagetext(res.data.post._id);
         const data = {
           ...Contexts.us,
           desc: text,
           img: filename[filename.length * 1 - 1],
           category: category,
           conversation: res.data.post._id,
+          message: res.data.post._id,
         };
         console.log(data);
         setpostdata([...postdata, data]);

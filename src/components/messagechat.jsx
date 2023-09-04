@@ -6,31 +6,46 @@ import axios from "axios";
 import { CountContext } from "../context";
 function Messagechat() {
   const Contexts = useContext(CountContext);
-  useEffect(() => {});
+  // useEffect(() => {});
   const [text, settext] = useState("");
   const [username, setUsername] = useState("");
   const [usernamess, setUsernamess] = useState("");
   const [user, setUser] = useState("");
-  const [message, setmessage] = useState("");
+  const [message, setmessage] = useState([]);
   const [socket, setSocket] = useState(null);
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
-    const chattyou = async () => {
-      await axios
-        .get(
-          "https://bigserver.onrender.com/postmessagesearch/64f4908a1bdcf4a5e6303639"
-        )
-        .then((res) => {
-          console.log(res.data.post._id);
-          setmessage(res.data.post._id);
-        })
-        .catch((er) => console.log(er));
-    };
-    chattyou();
+    // setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
+    // chattyou();
   }, []);
+  //
+  const chattyou = async () => {
+    console.log(Contexts.us);
+    console.log(Contexts.us.message);
+    let obj = JSON.stringify(Contexts.us);
+    localStorage.setItem("userdata", obj);
+    console.log(Contexts.us);
+    await axios
+      .put(
+        "http://localhost:3001/postmessagesearch/" +
+          Contexts.us.messageid_ +
+          "/like",
+        {
+          message: text,
+          mname: Contexts.us.username,
+          mid: Contexts.us.userid,
+        } //https://bigserver.onrender.com/postmessagesearch
+      )
+      .then((res) => {
+        console.log(res.data.messages);
+        setmessage(res.data.messages);
+      })
+      .catch((er) => console.log(er));
+  };
 
+  //
+  console.log(message);
   useEffect(() => {
     console.log(user !== null);
     if (user !== null) {
@@ -69,11 +84,11 @@ function Messagechat() {
             placeholder="send to"
             onChange={(e) => setUsernamess(e.target.value)}
           />
-          <input
+          {/* <input
             type="text"
             placeholder="text"
             onChange={(e) => settext(e.target.value)}
-          />
+          /> */}
 
           <button onClick={() => setUser(username)}>Login</button>
 
@@ -84,7 +99,22 @@ function Messagechat() {
               <div>{n.text}</div>
             ))}
           </div>
-          {message}
+          {message?.map((m) => (
+            <div>
+              <div>{m.message}</div>
+              <div>{m.mid}</div>
+            </div>
+          ))}
+          <div>
+            <textarea
+              onChange={(e) => settext(e.target.value)}
+              name=""
+              id=""
+              cols="30"
+              rows="2"
+            ></textarea>
+            <button onClick={chattyou}>send</button>
+          </div>
         </div>
       </div>
     </div>

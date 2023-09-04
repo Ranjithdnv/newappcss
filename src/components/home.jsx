@@ -9,7 +9,7 @@ function Home() {
   const Contexts = useContext(CountContext);
   const [info, setinfo] = useState(false);
   const [compo, setcompo] = useState(false);
-  const [Detail, setDetail] = useState(false);
+  const [Detail, setDetail] = useState(true);
   const [World, setWorld] = useState(false);
   // // const [Four ,setFour]=useState(["sports","start_up","pay for work","find-bussiness-partner"])
   // const [district ,setdistrict]=useState(false)
@@ -44,7 +44,7 @@ function Home() {
     setinfo(Contexts.us);
   });
   const Details = (value) => {
-    setDetail(!Detail);
+    // setDetail(!Detail);
     setcompo(value);
   };
 

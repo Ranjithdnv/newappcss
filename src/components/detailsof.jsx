@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CountContext } from "../context";
-function Detailsof({ compo, num, setchats }) {
+function Detailsof({ compo = 0, num, setchats }) {
   const Contexts = useContext(CountContext);
   const states = ["ap", "tamilnadu", "odisa", "bangalore", "karnataka"];
   const country = ["india", "paki", "bangladesh", "srilanka", "nepal"];
@@ -104,7 +104,7 @@ function Detailsof({ compo, num, setchats }) {
   };
   return (
     <div className="selectplaces">
-      {array[compo].map((details) => (
+      {array[compo]?.map((details) => (
         <>
           <div
             className="selectplace"

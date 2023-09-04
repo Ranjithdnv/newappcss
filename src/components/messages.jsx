@@ -81,15 +81,16 @@ function Messages({ chatss }) {
     navi("/chatwithpost");
   };
   const messagechat = async (value) => {
-    // console.log({...Contexts.us,...value})
-
+    console.log({ ...Contexts.us, ...value });
+    console.log(value);
     Contexts.user({ ...Contexts.us, ...value });
-    // console.log(Contexts.us)
+    // let obj = JSON.stringify(Contexts.us);
+
     navi("/messagechat");
   };
   // console.log((chat[3].img).split(".")[1])
   console.log(0);
-
+  console.log(chat[20]);
   return (
     <>
       <div className="fourtop">
@@ -122,7 +123,10 @@ function Messages({ chatss }) {
      </div>                 //       `https://bigserver.onrender.com/images/${chat.img}` */}
       <>
         {chat?.map((chat, index) => (
-          <div onClick={() => messagechat({ message: chat._id })} key={index}>
+          <div
+            onClick={() => messagechat({ messageid_: chat.conversation })}
+            key={index}
+          >
             {" "}
             {chat.img?.split(".")[1] === "jpg" ? (
               <div onClick={() => cllick(chat)} className="imagedesc">
