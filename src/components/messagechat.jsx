@@ -76,7 +76,8 @@ function Messagechat() {
 
   useEffect(() => {
     socket?.on("getText", (data) => {
-      setNotifications((prev) => [...prev, data]);
+      // setNotifications((prev) => [...prev, data]);
+      setmessage((prev) => [...prev, data]);
       console.log("worked");
     });
   }, [socket]);
