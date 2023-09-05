@@ -33,7 +33,9 @@ function Create() {
   const uploaddata = async (event) => {
     event.preventDefault();
     await axios
-      .post("http://localhost:3001/postmessage", { userid: Contexts.us.userid })
+      .post("https://bigserver.onrender.com/postmessage", {
+        userid: Contexts.us.userid,
+      })
       .then(async (res) => {
         console.log(res.data.post._id);
         // Contexts.user({ ...Contexts.us, message: res.data.post._id });
@@ -86,7 +88,7 @@ function Create() {
     // console.log(data);
     // setpostdata([...postdata, data]);
     await axios
-      .post("http://localhost:3001/postmessage")
+      .post("https://bigserver.onrender.com/postmessage")
       .then((res) => {
         console.log(res.data.post._id);
       })

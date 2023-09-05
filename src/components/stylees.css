@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(44, 41, 41);
+}
+.first {
+  color: rgb(248, 243, 243);
+  text-align: right;
+  background-color: rgb(19, 27, 27);
+  margin-left: 20%;
+  margin-bottom: 2px;
+  display: inline-block;
+
+  /* text-align: left; */
+}
+.last {
+  color: rgb(247, 252, 252);
+  text-align: left;
+  margin-right: 20%;
+  text-align: left;
+}
+.area-text {
+  width: 80%;
+}
+.login {
+  /* background-color: rgb(48, 52, 52); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* height: 100vh; */
+  align-items: center;
+}
+.message-grow {
+  /* flex: grow; */
+}
+.main-message-background {
+  /* background-color: rgb(165, 142, 142); */
+  /* width: 80%; */
+}
+.main-message-background-check {
+  display: inline-block;
+  margin-bottom: 2px;
+}

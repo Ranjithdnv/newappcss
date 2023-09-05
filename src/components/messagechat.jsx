@@ -1,13 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useState } from "react";
 import { io } from "socket.io-client";
+import "./stylees.css";
 // import React, { useState, useContext } from "react";
 import axios from "axios";
 import { CountContext } from "../context";
+import Messagecheck from "./messagecheck";
 function Messagechat() {
   const Contexts = useContext(CountContext);
+  const textref = useRef("");
+  const tobottomref = useRef("");
   // useEffect(() => {});
-  const [text, settext] = useState("");
+  // const [text, settext] = useState("");
+
   const [username, setUsername] = useState("");
   const [usernamess, setUsernamess] = useState("");
   const [user, setUser] = useState("");
@@ -15,10 +20,16 @@ function Messagechat() {
   const [socket, setSocket] = useState(null);
   const [notifications, setNotifications] = useState([]);
 
+  const reftest = (e) => {
+    console.log(textref.current.value);
+    // textref.current = e.target.value;
+  };
+
   useEffect(() => {
+    tobottomref.current?.scrollIntoView();
     setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     // chattyou();
-  }, []);
+  }, [message]);
   //
   const chattyou = async () => {
     console.log(Contexts.us);
@@ -26,13 +37,14 @@ function Messagechat() {
     let obj = JSON.stringify(Contexts.us);
     localStorage.setItem("userdata", obj);
     console.log(Contexts.us);
+
     await axios
       .put(
         "https://bigserver.onrender.com/postmessagesearch/" +
           Contexts.us.messageid_ +
           "/like",
         {
-          message: text,
+          message: textref.current.value,
           mname: Contexts.us.username,
           mid: Contexts.us.userid,
         } //https://bigserver.onrender.com/postmessagesearch
@@ -58,7 +70,7 @@ function Messagechat() {
     socket.emit("sendText", {
       senderName: user,
       receiverName: usernamess,
-      text: text,
+      text: textref.current.value,
     });
   };
 
@@ -70,10 +82,8 @@ function Messagechat() {
   }, [socket]);
   return (
     <div className="mc-contain">
-      hh vvv
       <div className="container">
         <div className="login">
-          <h2>Lama App</h2>
           <input
             type="text"
             placeholder="username"
@@ -89,32 +99,44 @@ function Messagechat() {
             placeholder="text"
             onChange={(e) => settext(e.target.value)}
           /> */}
-
           <button onClick={() => setUser(username)}>Login</button>
-
           <button onClick={func}>button</button>
           <div>
             {" "}
             {notifications?.map((n) => (
               <div>{n.text}</div>
             ))}
+          </div>{" "}
+          <div className="message-grow">
+            {" "}
+            {message?.map((m) => (
+              <div>
+                {/* <div>{m.message}</div>
+              <div>{m.mid}</div> 
+              <div>{m.mname}</div> */}
+                <Messagecheck m={m} />
+              </div>
+            ))}
           </div>
-          {message?.map((m) => (
-            <div>
-              <div>{m.message}</div>
-              <div>{m.mid}</div>
-            </div>
-          ))}
           <div>
             <textarea
-              onChange={(e) => settext(e.target.value)}
+              className="area-text"
+              ref={textref}
+              onChange={
+                (e) => reftest(e)
+                // (textref.current = e.target.value)
+                // settext(e.target.value)
+              }
               name=""
               id=""
-              cols="30"
+              cols="20"
               rows="2"
             ></textarea>
+          </div>
+          <div>
             <button onClick={chattyou}>send</button>
           </div>
+          <div ref={tobottomref} />
         </div>
       </div>
     </div>
