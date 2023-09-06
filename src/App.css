@@ -1,0 +1,8 @@
+.imagedesc {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-top: 1rem;
+}

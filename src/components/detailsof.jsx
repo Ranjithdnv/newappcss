@@ -103,18 +103,53 @@ function Detailsof({ compo = 0, num, setchats }) {
     //          Contexts.user({...Contexts.us,...value2})
   };
   return (
-    <div className="selectplaces">
-      {array[compo]?.map((details) => (
+    <>
+      {compo ? (
         <>
-          <div
-            className="selectplace"
-            onClick={() => detailsupdate(`${details}`)}
-          >
-            {details}
+          <div className="selectplaces">
+            {array[compo]?.map((details) => (
+              <>
+                <div
+                  className="selectplace"
+                  onClick={() => detailsupdate(`${details}`)}
+                >
+                  {details}
+                </div>
+              </>
+            ))}
           </div>
         </>
-      ))}
-    </div>
+      ) : (
+        <>
+          <div className="selectplaces">
+            {array[0]?.map((details) => (
+              <>
+                <div
+                  className="selectplace"
+                  onClick={() => detailsupdate(`${details}`)}
+                >
+                  {details}
+                </div>
+              </>
+            ))}
+          </div>
+        </>
+      )}
+    </>
+
+    // <div className="selectplaces">
+
+    //   {array[compo]?.map((details) => (
+    //     <>
+    //       <div
+    //         className="selectplace"
+    //         onClick={() => detailsupdate(`${details}`)}
+    //       >
+    //         {details}
+    //       </div>
+    //     </>
+    //   ))}
+    // </div>
   );
 }
 export default Detailsof;

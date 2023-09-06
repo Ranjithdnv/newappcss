@@ -1,5 +1,11 @@
 body {
-  background-color: rgb(44, 41, 41);
+  background-color: rgb(67, 71, 66);
+  background-image: linear-gradient(
+    to right top,
+    rgb(2, 145, 228),
+    aqua,
+    transparent
+  );
 }
 .first {
   color: rgb(10, 0, 0);
@@ -21,22 +27,72 @@ body {
 .area-text {
   width: 80%;
 }
+.login-input {
+  width: 300px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.login-input input,
+button {
+  border-radius: 1rem;
+
+  width: 100%;
+  box-sizing: border-box;
+  color: #1ab5ee;
+  text-align: center;
+  font-weight: bold;
+}
+.login-input a {
+  border-radius: 1rem;
+  background-color: aliceblue;
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  color: rgb(30, 133, 229);
+}
+.Name-owner {
+  font-size: xx-large;
+  font-weight: 900;
+  background-image: linear-gradient(
+    to top right,
+    rgba(221, 14, 124),
+    rgb(91, 7, 248),
+    orangered,
+    rgb(0, 255, 106)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* .message-grow {
+  /* flex: grow; */
+/* }
+.main-message-background { */
+/* background-color: rgb(165, 142, 142); */
+/* width: 80%; */
+/* }
+.main-message-background-check {
+  display: block;
+  margin-bottom: 2px;
+} */
 .login {
-  /* background-color: rgb(48, 52, 52); */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 100vh; */
   align-items: center;
+  height: 100vh;
 }
-.message-grow {
-  /* flex: grow; */
+.send {
+  display: flex;
+  column-gap: 1rem;
 }
-.main-message-background {
-  /* background-color: rgb(165, 142, 142); */
-  /* width: 80%; */
+.sendone {
+  flex: 5;
 }
-.main-message-background-check {
-  display: inline;
-  margin-bottom: 2px;
+.sendtwo {
+  flex: 1;
 }

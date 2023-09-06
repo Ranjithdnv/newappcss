@@ -30,6 +30,22 @@ function Messagechat() {
     setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     // chattyou();
   }, [message]);
+  //
+  useEffect(() => {
+    const cham = async () => {
+      await axios
+        .get(
+          "https://bigserver.onrender.com/postmessagesearch/" +
+            Contexts.us.messageid_
+        )
+        .then((res) => {
+          console.log(res.data.post.messages);
+          setmessage(res.data.post.messages);
+        })
+        .catch((er) => console.log(er));
+    };
+    cham();
+  }, []);
 
   const chattyou = async () => {
     // console.log(Contexts.us);
@@ -87,7 +103,7 @@ function Messagechat() {
     <div className="mc-contain">
       <div className="container">
         <div className="login">
-          <input
+          {/* <input
             type="text"
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
@@ -96,14 +112,14 @@ function Messagechat() {
             type="text"
             placeholder="send to"
             onChange={(e) => setUsernamess(e.target.value)}
-          />
+          /> */}
           {/* <input
             type="text"
             placeholder="text"
             onChange={(e) => settext(e.target.value)}
           /> */}
-          <button onClick={() => setUser(username)}>Login</button>
-          <button onClick={func}>button</button>
+          {/* <button onClick={() => setUser(username)}>Login</button>
+          <button onClick={func}>button</button> */}
           <div>
             {" "}
             {notifications?.map((n) => (
@@ -121,9 +137,9 @@ function Messagechat() {
               </div>
             ))}
           </div>
-          <div>
+          <div className="send">
             <textarea
-              className="area-text"
+              className="area-text sendone"
               ref={textref}
               onChange={
                 (e) => reftest(e)
@@ -134,10 +150,11 @@ function Messagechat() {
               id=""
               cols="20"
               rows="2"
-            ></textarea>
-          </div>
-          <div>
-            <button onClick={chattyou}>send</button>
+            ></textarea>{" "}
+            <button className="sendtwo" onClick={chattyou}>
+              send
+            </button>
+            <div> </div>
           </div>
           <div ref={tobottomref} />
         </div>

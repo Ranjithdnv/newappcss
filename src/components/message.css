@@ -1,0 +1,9 @@
+.im-age-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.video-text {
+  text-align: center;
+}

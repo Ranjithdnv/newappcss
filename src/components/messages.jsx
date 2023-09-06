@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import "./message.css";
 import { CountContext } from "../context";
 
 function Messages({ chatss }) {
@@ -49,13 +50,14 @@ function Messages({ chatss }) {
     }
   };
   useEffect(() => {
+    //   https://bigserver.onrender.com/
     const getposts = async () => {
       try {
         const res = await axios.get("https://bigserver.onrender.com/", {
           headers: {
             Authorization: `Bearer ${localStorage?.getItem("token") || null}`,
           },
-        }); //   https://bigserver.onrender.com/
+        });
         console.log(res.data);
         setchat(res.data);
       } catch (err) {
@@ -96,8 +98,8 @@ function Messages({ chatss }) {
       <div className="fourtop">
         {" "}
         <div className="four">
-          {Four.map((fours) => (
-            <button onClick={() => fourselect({ category: fours })}>
+          {Four.map((fours, index) => (
+            <button key={index} onClick={() => fourselect({ category: fours })}>
               {fours}
             </button>
           ))}
@@ -121,14 +123,15 @@ function Messages({ chatss }) {
        <input type="file" onChange={(e) => setFile(e.target.files[0])}/>
        <button type="button" onClick={upload}>Upload</button>
      </div>                 //       `https://bigserver.onrender.com/images/${chat.img}` */}
-      <>
+      <div className="im-age-container">
         {chat?.map((chat, index) => (
           <div
             onClick={() => messagechat({ messageid_: chat.conversation })}
             key={index}
           >
             {" "}
-            {chat.img?.split(".")[1] === "jpg" ? (
+            {chat.img?.split(".")[1] === "jpg" ||
+            chat.img?.split(".")[1] === "png" ? (
               <div onClick={() => cllick(chat)} className="imagedesc">
                 <img
                   className="imagedesc"
@@ -146,12 +149,12 @@ function Messages({ chatss }) {
                 />{" "}
               </div>
             )}
-            <div>{chat.desc}</div>
+            <div className="video-text">{chat.desc}</div>
           </div>
         ))}
         {/* <img src="http://localhost:3001/images/1693043656945_splash.jpg" height="100px" width="20px" alt="" />
     <div>messages</div> */}
-      </>{" "}
+      </div>{" "}
     </>
   );
 }
