@@ -6,8 +6,12 @@ function Signup() {
   const [text2, settext2] = useState("");
   const accountcreate = () => {
     axios
-      .post("http://localhost:3001/signup", { userId: text1, password: text2 }) //   https://bigserver.onrender.com/upload
+      .post("https://bigserver.onrender.com/signup", {
+        userId: text1,
+        password: text2,
+      }) //   https://bigserver.onrender.com/upload
       .then((res) => {
+        console.log(res.data);
         console.log(res.data);
       })
       .catch((er) => console.log(er));
