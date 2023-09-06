@@ -47,7 +47,7 @@ button {
 }
 .login-input a {
   border-radius: 1rem;
-  background-color: aliceblue;
+  background-color: rgb(1, 10, 18);
   text-decoration: none;
   text-align: center;
   box-sizing: border-box;

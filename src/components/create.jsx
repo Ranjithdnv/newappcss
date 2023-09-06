@@ -17,9 +17,9 @@ function Create() {
     const formData = new FormData();
     formData.append("file", file);
     await axios
-      .post("https://bigserver.onrender.com/upload", formData, { text: text }) //   https://bigserver.onrender.com/upload
+      .post("https://bigserver.onrender.com/upload", formData, { text: text })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data); //   https://bigserver.onrender.com/upload
 
         console.log(0);
         setfilename([...filename, res.data]);
@@ -151,9 +151,6 @@ function Create() {
               {" "}
               <button className="link" onClick={uploaddata}>
                 postme
-              </button>
-              <button className="link" onClick={checkm}>
-                checkm
               </button>
             </div>
             <div>
