@@ -2,18 +2,19 @@ body {
   background-color: rgb(44, 41, 41);
 }
 .first {
-  color: rgb(248, 243, 243);
+  color: rgb(10, 0, 0);
   text-align: right;
-  background-color: rgb(19, 27, 27);
+  /* background-color: rgb(14, 233, 233); */
   margin-left: 20%;
   margin-bottom: 2px;
-  display: inline-block;
+  /* display: inline-block; */
 
   /* text-align: left; */
 }
 .last {
   color: rgb(247, 252, 252);
   text-align: left;
+  /* background-color: rgb(60, 12, 191); */
   margin-right: 20%;
   text-align: left;
 }
@@ -36,6 +37,6 @@ body {
   /* width: 80%; */
 }
 .main-message-background-check {
-  display: inline-block;
+  display: inline;
   margin-bottom: 2px;
 }

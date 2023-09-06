@@ -30,14 +30,14 @@ function Messagechat() {
     setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     // chattyou();
   }, [message]);
-  //
-  const chattyou = async () => {
-    console.log(Contexts.us);
-    console.log(Contexts.us.message);
-    let obj = JSON.stringify(Contexts.us);
-    localStorage.setItem("userdata", obj);
-    console.log(Contexts.us);
 
+  const chattyou = async () => {
+    // console.log(Contexts.us);
+    // console.log(Contexts.us.message);
+    // let obj = JSON.stringify(Contexts.us);
+    // localStorage.setItem("userdata", obj);
+    // console.log(Contexts.us);
+    console.log(textref.current.value);
     await axios
       .put(
         "https://bigserver.onrender.com/postmessagesearch/" +
@@ -67,16 +67,18 @@ function Messagechat() {
   }, [user]);
 
   const func = () => {
+    console.log(Contexts.us.username);
     socket.emit("sendText", {
-      senderName: user,
-      receiverName: usernamess,
-      text: textref.current.value,
+      message: textref.current.value,
+      mname: Contexts.us.username,
+      mid: Contexts.us.userid,
     });
   };
 
   useEffect(() => {
     socket?.on("getText", (data) => {
       // setNotifications((prev) => [...prev, data]);
+      console.log(data);
       setmessage((prev) => [...prev, data]);
       console.log("worked");
     });
@@ -111,7 +113,7 @@ function Messagechat() {
           <div className="message-grow">
             {" "}
             {message?.map((m) => (
-              <div>
+              <div className="main-message-background-check">
                 {/* <div>{m.message}</div>
               <div>{m.mid}</div> 
               <div>{m.mname}</div> */}
