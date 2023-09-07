@@ -27,7 +27,7 @@ function Messagechat() {
 
   useEffect(() => {
     tobottomref.current?.scrollIntoView();
-    setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
+    // setSocket(io("https://sock-hepv.onrender.com")); //https://sock-hepv.onrender.com
     // chattyou();
   }, [message]);
   //
@@ -148,8 +148,8 @@ function Messagechat() {
               }
               name=""
               id=""
-              cols="20"
-              rows="2"
+              cols="5"
+              rows="3"
             ></textarea>{" "}
             <button className="sendtwo" onClick={chattyou}>
               send

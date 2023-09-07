@@ -14,6 +14,8 @@ function Messages({ chatss }) {
     "start_up",
     "pay for work",
     "find-bussiness-partner",
+    "not-in-youtube",
+    "donate",
   ]);
   //   const upload = () => {
   //     const formData = new FormData()
@@ -135,8 +137,10 @@ function Messages({ chatss }) {
               <div onClick={() => cllick(chat)} className="imagedesc">
                 <img
                   className="imagedesc"
-                  src={ //"https://zzsocapi.onrender.com/images/1694067416061_swim.jpg"
-                  `https://zzsocapi.onrender.com/images/${chat.img}`}
+                  src={
+                    //"https://zzsocapi.onrender.com/images/1694067416061_swim.jpg"
+                    `https://zzsocapi.onrender.com/images/${chat.img}`
+                  }
                   alt=""
                 />
               </div>

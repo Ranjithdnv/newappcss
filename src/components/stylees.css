@@ -10,18 +10,22 @@ body {
 .first {
   color: rgb(10, 0, 0);
   text-align: right;
-  /* background-color: rgb(14, 233, 233); */
-  margin-left: 20%;
-  margin-bottom: 2px;
-  /* display: inline-block; */
 
-  /* text-align: left; */
+  margin-left: 20%;
+  display: flex;
+  justify-content: right;
+  box-sizing: border-box;
+  margin-bottom: 2px;
 }
 .last {
-  color: rgb(247, 252, 252);
+  color: rgb(89, 97, 97);
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  box-sizing: border-box;
   text-align: left;
-  /* background-color: rgb(60, 12, 191); */
   margin-right: 20%;
+
   text-align: left;
 }
 .area-text {
@@ -68,10 +72,12 @@ button {
   -webkit-background-clip: text;
   color: transparent;
 }
-/* .message-grow {
-  /* flex: grow; */
-/* }
-.main-message-background { */
+.message-grow {
+  /* flex: grow;
+  width: 100%; */
+}
+/* //.main-message-background { */
+*/
 /* background-color: rgb(165, 142, 142); */
 /* width: 80%; */
 /* }
@@ -90,10 +96,29 @@ button {
 .send {
   display: flex;
   column-gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 .sendone {
   flex: 5;
+  max-width: 20rem;
+  border-radius: 1rem;
+  height: 1rem;
 }
 .sendtwo {
   flex: 1;
+  max-width: 5rem;
+}
+
+.main-message-background-check {
+  padding: 1rem;
+}
+
+.spaone {
+  border-radius: 1rem;
+  background-color: aliceblue;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }

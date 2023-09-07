@@ -20,7 +20,7 @@ function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/messagechat" element={<Messagechat />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/chatwithpost" element={<Post />} />
+        {/* <Route path="/chatwithpost" element={<Post />} /> */}
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>

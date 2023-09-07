@@ -125,7 +125,6 @@ function Create() {
           {/* <div>
             <img src="" alt="" />
           </div> */}
-
           <input
             type="text"
             value={text}
@@ -134,7 +133,6 @@ function Create() {
               settext(e.target.value);
             }}
           />
-
           <input
             type="text"
             placeholder="category"
@@ -145,30 +143,21 @@ function Create() {
           />
           <button className="link" onClick={uploaddata}>
             postme
-          </button>
-          <div>
-            <label htmlFor="fileupload">
-              <div className="labelshadow"></div>
-              <span className="remove">
-                {" "}
-                <input
-                  className="link"
-                  id="fileupload"
-                  type="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                />
-              </span>
-            </label>
-          </div>
-          <div>
-            {uploadchange ? (
-              <div className="link">uploading..</div>
-            ) : (
-              <button type="button" className="link" onClick={upload}>
-                Upload
-              </button>
-            )}
-          </div>
+          </button>{" "}
+          <input
+            className="no-display"
+            id="fileupload"
+            type="file"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+          {uploadchange ? (
+            <div className="link">uploading..</div>
+          ) : (
+            <button type="button" className="link" onClick={upload}>
+              Upload
+            </button>
+          )}
+          {/* </div> */}
         </form>
       </div>
       {/* </div> */}
