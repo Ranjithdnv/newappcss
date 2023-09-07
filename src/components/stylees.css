@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: rgb(67, 71, 66);
   background-image: linear-gradient(
     to right top,
@@ -90,7 +90,7 @@ button {
   height: 100vh;
   row-gap: 1rem;
 }
-.send {
+/* .send {
   display: flex;
   column-gap: 1rem;
   justify-content: center;
@@ -125,4 +125,4 @@ button {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-}
+}  */
