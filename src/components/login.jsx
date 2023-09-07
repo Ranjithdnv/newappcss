@@ -33,45 +33,47 @@ function Login() {
   };
   return (
     <div className="login">
-      <div className="Name-owner">{Contexts.us.username}</div>
-      <div className="login-input">
-        {" "}
-        <input
-          placeholder="Id"
-          type="text"
-          value={text1}
-          onChange={(e) => {
-            settext1(e.target.value);
-          }}
-        />
-      </div>
-      <div className="login-input">
-        {" "}
-        <input
-          type="text"
-          placeholder="Password"
-          value={text2}
-          onChange={(e) => {
-            settext2(e.target.value);
-          }}
-        />
-      </div>
-      <div className="login-input">
-        {" "}
-        <input
-          placeholder="Enter Name"
-          type="text"
-          value={text3}
-          onChange={(e) => {
-            settext3(e.target.value);
-          }}
-        />
-      </div>
-      <div className="login-input">
-        <button onClick={accountcreate}>login</button>
-      </div>
-      <div className="login-input">
-        <Link to="/signup">create account</Link>
+      <div className="log-log">
+        <div className="Name-owner">{Contexts.us.username}</div>
+        <div className="login-input">
+          {" "}
+          <input
+            placeholder="Id"
+            type="text"
+            value={text1}
+            onChange={(e) => {
+              settext1(e.target.value);
+            }}
+          />
+        </div>
+        <div className="login-input">
+          {" "}
+          <input
+            type="text"
+            placeholder="Password"
+            value={text2}
+            onChange={(e) => {
+              settext2(e.target.value);
+            }}
+          />
+        </div>
+        <div className="login-input">
+          {" "}
+          <input
+            placeholder="Enter Name"
+            type="text"
+            value={text3}
+            onChange={(e) => {
+              settext3(e.target.value);
+            }}
+          />
+        </div>
+        <div className="login-input">
+          <button onClick={accountcreate}>login</button>
+        </div>
+        <div className="login-input">
+          <Link to="/signup">create account</Link>
+        </div>
       </div>
     </div>
   );

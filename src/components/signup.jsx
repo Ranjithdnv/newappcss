@@ -18,28 +18,30 @@ function Signup() {
   };
   return (
     <div className="login">
-      <div className="login-input">
-        {" "}
-        <input
-          type="text"
-          value={text1}
-          onChange={(e) => {
-            settext1(e.target.value);
-          }}
-        />
-      </div>
-      <div className="login-input">
-        {" "}
-        <input
-          type="text"
-          value={text2}
-          onChange={(e) => {
-            settext2(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <button onClick={accountcreate}>signup</button>
+      <div className="log-log">
+        <div className="login-input">
+          {" "}
+          <input
+            type="text"
+            value={text1}
+            onChange={(e) => {
+              settext1(e.target.value);
+            }}
+          />
+        </div>
+        <div className="login-input">
+          {" "}
+          <input
+            type="text"
+            value={text2}
+            onChange={(e) => {
+              settext2(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <button onClick={accountcreate}>signup</button>
+        </div>
       </div>
     </div>
   );
