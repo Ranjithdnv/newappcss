@@ -105,26 +105,24 @@ function Detailsof({ compo = 0, num, setchats }) {
   return (
     <>
       {compo ? (
-        <>
-          <div className="selectplaces">
-            {array[compo]?.map((details) => (
-              <>
-                <div
-                  className="selectplace"
-                  onClick={() => detailsupdate(`${details}`)}
-                >
-                  {details}
-                </div>
-              </>
-            ))}
-          </div>
-        </>
+        <div className="selectplaces">
+          {array[compo]?.map((details, index) => (
+            <div
+              key={index}
+              className="selectplace"
+              onClick={() => detailsupdate(`${details}`)}
+            >
+              {details}
+            </div>
+          ))}
+        </div>
       ) : (
         <>
           <div className="selectplaces">
-            {array[0]?.map((details) => (
+            {array[0]?.map((details, index) => (
               <>
                 <div
+                  key={index}
                   className="selectplace"
                   onClick={() => detailsupdate(`${details}`)}
                 >
