@@ -17,7 +17,7 @@ function Create() {
     const formData = new FormData();
     formData.append("file", file);
     await axios
-      .post("https://bigserver.onrender.com/upload", formData, { text: text })
+      .post("https://zzsocapi.onrender.com/upload", formData, { text: text })
       .then((res) => {
         console.log(res.data); //   https://bigserver.onrender.com/upload
 
@@ -119,48 +119,37 @@ function Create() {
   // console.log(data)
   return (
     <>
-      <div className="create-box">
-        {" "}
-        <div className=" create-innerbox">
-          <form className=" create-innerbox" action="">
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
-              <input
-                type="text"
-                value={text}
-                placeholder="describe"
-                onChange={(e) => {
-                  settext(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              {" "}
-              <input
-                type="text"
-                placeholder="category"
-                value={category}
-                onChange={(e) => {
-                  setcategory(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              {" "}
-              <button className="link" onClick={uploaddata}>
-                postme
-              </button>
-            </div>
-            <div>
-              <label htmlFor="fileupload">
-                <div className="label shadow">add file</div>
-              </label>
-            </div>
+      {/* <div className="create-box"> */}{" "}
+      <div className=" create-innerbox">
+        <form className=" create-innerbox" action="">
+          {/* <div>
+            <img src="" alt="" />
+          </div> */}
 
-            <div>
-              <div className="remove">
+          <input
+            type="text"
+            value={text}
+            placeholder="describe"
+            onChange={(e) => {
+              settext(e.target.value);
+            }}
+          />
+
+          <input
+            type="text"
+            placeholder="category"
+            value={category}
+            onChange={(e) => {
+              setcategory(e.target.value);
+            }}
+          />
+          <button className="link" onClick={uploaddata}>
+            postme
+          </button>
+          <div>
+            <label htmlFor="fileupload">
+              <div className="labelshadow"></div>
+              <span className="remove">
                 {" "}
                 <input
                   className="link"
@@ -168,19 +157,21 @@ function Create() {
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
                 />
-              </div>
-
-              {uploadchange ? (
-                <div className="link">uploading..</div>
-              ) : (
-                <button type="button" className="link" onClick={upload}>
-                  Upload
-                </button>
-              )}
-            </div>
-          </form>
-        </div>
+              </span>
+            </label>
+          </div>
+          <div>
+            {uploadchange ? (
+              <div className="link">uploading..</div>
+            ) : (
+              <button type="button" className="link" onClick={upload}>
+                Upload
+              </button>
+            )}
+          </div>
+        </form>
       </div>
+      {/* </div> */}
     </>
   );
 }

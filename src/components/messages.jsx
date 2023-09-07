@@ -135,7 +135,7 @@ function Messages({ chatss }) {
               <div onClick={() => cllick(chat)} className="imagedesc">
                 <img
                   className="imagedesc"
-                  src={`https://bigserver.onrender.com/images/${chat.img}`}
+                  src="https://zzsocapi.onrender.com/images/1694067416061_swim.jpg" // {`https://zzsocapi.onrender.com/images/${chat.img}`}
                   alt=""
                 />
               </div>
@@ -145,7 +145,7 @@ function Messages({ chatss }) {
                   className="appvideo"
                   controls
                   loop
-                  src={`https://bigserver.onrender.com/images/${chat.img}`}
+                  src={`https://zzsocapi.onrender.com/images/${chat.img}`}
                 />{" "}
               </div>
             )}

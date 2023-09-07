@@ -135,11 +135,27 @@ button:hover {
   flex-wrap: wrap;
   font-size: 1rem;
 }
+.create-innerbox {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.create-innerbox input {
+  width: 100%;
+  border-radius: 1rem;
+}
 .main-box {
   margin: 0.5rem;
   background-color: rgba(9, 0, 0, 0.8);
   color: aqua;
   padding: 0.5rem;
+}
+.labelshadow {
+  background-color: orangered;
+  height: 1rem;
+  width: 1rem;
 }
 .motive-animation {
   overflow: hidden;
