@@ -89,6 +89,7 @@ button {
   align-items: center;
   height: 100vh;
   row-gap: 1rem;
+  padding-left: 1rem;
 }
 /* .send {
   display: flex;
